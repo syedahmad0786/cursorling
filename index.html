@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cursorling</title>
+    <meta
+      name="description"
+      content="A tiny ink-blot familiar that lives near your mouse."
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Shippori+Mincho:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="lamp" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="blotter" aria-hidden="true"></div>
+    <div id="stage"></div>
+    <header>
+      <p class="accession">FT–001</p>
+      <h1>Cursorling</h1>
+      <p class="lede">
+        A blot of ink that learned the mouse. It sits a little southeast of the
+        pointer and has opinions.
+      </p>
+    </header>
+    <aside class="pad">
+      <p class="pad-label">temperament</p>
+      <nav class="personas" aria-label="Personality">
+        <button type="button" data-persona="chill">chill</button>
+        <button type="button" data-persona="dramatic">dramatic</button>
+        <button type="button" data-persona="judgmental">judgmental</button>
+        <button type="button" data-persona="sleepy">sleepy</button>
+        <button type="button" data-persona="chaotic">chaotic</button>
+      </nav>
+      <p class="hint">
+        Move. Click. Wait. It yawns when you abandon it, stretches when you
+        flee, hops when you strike the desk.
+      </p>
+    </aside>
+    <footer class="webring">
+      <a href="https://fun-toys.vercel.app">a Fun Toy</a>
+      ·
+      <a href="https://rake-garden.vercel.app">prev</a>
+      <a href="https://please-press.vercel.app">next</a>
+    </footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

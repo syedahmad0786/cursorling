@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Cursorling",
+  "version": "1.0.0",
+  "description": "A tiny ink-blot familiar that lives near your mouse.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png"
+  },
+  "action": {
+    "default_title": "Cursorling",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage"],
+  "optional_permissions": ["tabs"],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["cursorling.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "cursorling@fun-toys",
+      "strict_min_version": "109.0"
+    }
+  }
+}

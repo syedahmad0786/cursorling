@@ -1,0 +1,59 @@
+{
+  "name": "cursorling",
+  "displayName": "Cursorling",
+  "description": "A tiny ink-blot familiar for your sidebar. It notices when you type and when you save.",
+  "version": "1.0.0",
+  "publisher": "ahmadbukhari",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "cursorling",
+          "title": "Cursorling",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "cursorling": [
+        {
+          "type": "webview",
+          "id": "cursorling.familiar",
+          "name": "Familiar"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "cursorling.cycle",
+        "title": "Cursorling: Cycle personality"
+      }
+    ],
+    "configuration": {
+      "title": "Cursorling",
+      "properties": {
+        "cursorling.personality": {
+          "type": "string",
+          "enum": ["chill", "dramatic", "judgmental", "sleepy", "chaotic"],
+          "default": "chill",
+          "description": "The familiar's temperament."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "package": "tsc -p ./ && npx @vscode/vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.8.2"
+  }
+}
