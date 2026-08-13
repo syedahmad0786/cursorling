@@ -8,7 +8,12 @@
       name="description"
       content="A tiny ink-blot familiar that lives near your mouse."
     />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:title" content="Cursorling" />
+    <meta property="og:image" content="/og.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,16 +23,27 @@
   </head>
   <body>
     <div class="lamp" aria-hidden="true"></div>
-    <div class="grain" aria-hidden="true"></div>
-    <div class="blotter" aria-hidden="true"></div>
+    <div class="lamp-brass" aria-hidden="true"></div>
+    <div class="grain studio-grain" aria-hidden="true"></div>
+    <div class="desk">
+      <div class="blotter" id="blotter" aria-hidden="true">
+        <span class="corner c1"></span>
+        <span class="corner c2"></span>
+        <span class="corner c3"></span>
+        <span class="corner c4"></span>
+      </div>
+    </div>
     <div id="stage"></div>
     <header>
-      <p class="accession">FT–001</p>
-      <h1>Cursorling</h1>
-      <p class="lede">
-        A blot of ink that learned the mouse. It sits a little southeast of the
-        pointer and has opinions.
-      </p>
+      <img class="mark" src="/logo.svg" alt="" width="52" height="52" />
+      <div class="header-copy">
+        <p class="accession">FT–001</p>
+        <h1>Cursorling</h1>
+        <p class="lede">
+          A blot of ink that learned the mouse. It sits a little southeast of the
+          pointer and has opinions.
+        </p>
+      </div>
     </header>
     <aside class="pad">
       <p class="pad-label">temperament</p>

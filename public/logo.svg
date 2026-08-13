@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="cur">
+  <defs>
+    <filter id="cur-soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="0.6" result="b"/>
+      <feOffset dy="0.4"/>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#1a0e0a"/>
+     <path fill="#f4ebd8" d="M32 8c12 0 21 8.6 20.6 19.4C52.2 35.2 48.4 40.4 44 43.4c3.6 6.2 2.8 13 0 19.4l-2.8-5.2c-1-6.4-1.8-10.6-2.6-13.2-.6 5.2-1.8 12.2-3.6 19.8h-2.6c-1.1-7.2-2-14.4-2.8-19.2C27.2 50 24.6 55.6 22 60.2l-2-3.4C22.6 51 25 45.8 27.2 42 21.2 39 16.2 32.6 16.8 24.4 17.4 14.6 23.8 8 32 8z"/>
+     <path fill="#f4ebd8" d="M17.2 30.4c-5 1.8-6.4 6.8-3.2 9 3.6-1.2 4.8-5.4 3.2-9z"/>
+     <ellipse fill="#1a0e0a" cx="26.6" cy="26.4" rx="4.2" ry="4.8"/>
+     <ellipse fill="#1a0e0a" cx="38.4" cy="26.4" rx="4.2" ry="4.8"/>
+     <circle fill="#c4a574" cx="27.4" cy="25.6" r="1.15"/>
+     <circle fill="#c4a574" cx="39.2" cy="25.6" r="1.15"/>
+</svg>

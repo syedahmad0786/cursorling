@@ -1,0 +1,26 @@
+{
+  "name": "Cursorling",
+  "short_name": "Cursorling",
+  "description": "Ink blot familiar",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a0e0a",
+  "theme_color": "#1a0e0a",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

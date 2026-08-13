@@ -1,3 +1,4 @@
+import { animate } from "motion";
 import "./style.css";
 import { Cursorling } from "./creature";
 import {
@@ -6,6 +7,7 @@ import {
   isPersonality,
   type Personality,
 } from "./personalities";
+import { bindTilt, grainCss, reducedMotion } from "./studio";
 
 type ThemePack = {
   id: string;
@@ -123,3 +125,16 @@ function applyTheme(pack: ThemePack): void {
 }
 
 void loadThemes();
+polishRoom();
+
+function polishRoom(): void {
+  const sheet = document.createElement("style");
+  sheet.textContent = grainCss(0.14);
+  document.head.append(sheet);
+  bindTilt(document.querySelector("#blotter"), 5, 10);
+  if (reducedMotion()) return;
+  const header = document.querySelector("header");
+  const pad = document.querySelector<HTMLElement>(".pad");
+  if (header) animate(header, { opacity: [0, 1], y: [-12, 0] }, { duration: 0.7 });
+  if (pad) animate(pad, { opacity: [0, 1], y: [18, 0] }, { duration: 0.75, delay: 0.12 });
+}

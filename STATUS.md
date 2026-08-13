@@ -1,5 +1,9 @@
 # Cursorling — STATUS
 
+## 2026-08-14 � premium studio look
+
+3D blotter tilt, lamp grain, Motion One header, ink-blot logo. Familiar follow unchanged. Reduced motion disables heavy 3D. Webring: https://fun-toys-alpha.vercel.app
+
 ## 2026-08-13 — agent theme live
 
 - Community pack `agent` is on https://cursorling.vercel.app
