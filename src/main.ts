@@ -78,7 +78,7 @@ document.querySelector("#snapshot")?.addEventListener("click", () => {
 });
 
 async function loadThemes(): Promise<void> {
-  const ids = ["sumi", "neon", "postcard"];
+  const ids = ["sumi", "neon", "postcard", "agent"];
   const nav = document.querySelector("#themes");
   for (const id of ids) {
     try {

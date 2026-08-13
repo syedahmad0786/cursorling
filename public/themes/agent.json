@@ -1,0 +1,16 @@
+{
+  "id": "agent",
+  "label": "agent weather",
+  "ink": "#101418",
+  "cream": "#d7ece0",
+  "wood": "#0c1814",
+  "brass": "#7dffb3",
+  "mute": "#6a9a80",
+  "mutters": {
+    "chill": ["composing.", "soft tokens."],
+    "dramatic": ["THE MODEL AWAKENS"],
+    "judgmental": ["it is guessing."],
+    "sleepy": ["token… nap…"],
+    "chaotic": ["TOOL CALL SPLORT"]
+  }
+}

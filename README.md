@@ -14,7 +14,7 @@ The pet follows the pointer on web pages. The popup switches personality. Tab co
 
 ## Theme packs
 
-JSON files in `public/themes/`. Fork and add a pack: id, colors, optional mutter overrides.
+JSON files in `public/themes/` (`sumi`, `neon`, `postcard`, plus community pack `agent`). Fork and add a pack: id, colors, optional mutter overrides.
 
 ## Screenshot
 
