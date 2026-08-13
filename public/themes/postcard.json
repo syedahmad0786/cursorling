@@ -1,0 +1,16 @@
+{
+  "id": "postcard",
+  "label": "judgmental postcard",
+  "ink": "#3a1c18",
+  "cream": "#fff4dc",
+  "wood": "#5a2a22",
+  "brass": "#e07a3d",
+  "mute": "#c48a6a",
+  "mutters": {
+    "chill": ["wish you were coding.", "weather's fine."],
+    "dramatic": ["Greetings from the abyss!"],
+    "judgmental": ["having a time. you wouldn't."],
+    "sleepy": ["post office closed"],
+    "chaotic": ["STAMP STAMP STAMP"]
+  }
+}

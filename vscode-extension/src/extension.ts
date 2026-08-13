@@ -91,6 +91,8 @@ function nonce(): string {
 class FamiliarView implements vscode.WebviewViewProvider {
   private view?: vscode.WebviewView;
   private lastType = 0;
+  private types: number[] = [];
+  private saves: number[] = [];
 
   constructor(private readonly extensionUri: vscode.Uri) {}
 
@@ -113,10 +115,26 @@ class FamiliarView implements vscode.WebviewViewProvider {
   }
 
   poke(kind: "type" | "save"): void {
+    const now = Date.now();
     if (kind === "type") {
-      const now = Date.now();
+      this.types.push(now);
+      this.types = this.types.filter((t) => now - t < 800);
+      if (this.types.length >= 8) {
+        this.types = [];
+        void this.view?.webview.postMessage({ type: "weather", kind: "burst" });
+        return;
+      }
       if (now - this.lastType < 140) return;
       this.lastType = now;
+    }
+    if (kind === "save") {
+      this.saves.push(now);
+      this.saves = this.saves.filter((t) => now - t < 4000);
+      if (this.saves.length >= 3) {
+        this.saves = [];
+        void this.view?.webview.postMessage({ type: "weather", kind: "storm" });
+        return;
+      }
     }
     void this.view?.webview.postMessage({ type: kind });
   }
@@ -159,7 +177,7 @@ function page(
   <h1>Cursorling</h1>
   <div id="stage"></div>
   <nav id="personas"></nav>
-  <p class="hint">Type in the editor. Save, and it notices.</p>
+  <p class="hint">Type. Save storms and burst typing read as agent weather. There is no real agent hook.</p>
   <script nonce="${token}" src="${engine}"></script>
   <script nonce="${token}" src="${boot}"></script>
 </body>

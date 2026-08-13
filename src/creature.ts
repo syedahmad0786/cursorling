@@ -35,6 +35,7 @@ export class Cursorling {
   private hopUntil = 0;
   private stretchUntil = 0;
   private mutterUntil = 0;
+  private typeCount = 0;
   private reduced = false;
   private readonly unbind: Array<() => void> = [];
 
@@ -77,11 +78,17 @@ export class Cursorling {
   follow(target: Window): void {
     const move = (event: MouseEvent) => this.point(event.clientX, event.clientY);
     const click = () => this.poke("click");
+    const type = (event: KeyboardEvent) => {
+      if (event.metaKey || event.ctrlKey || event.altKey) return;
+      this.poke("type");
+    };
     target.addEventListener("mousemove", move, { passive: true });
     target.addEventListener("mousedown", click);
+    target.addEventListener("keydown", type);
     this.unbind.push(() => {
       target.removeEventListener("mousemove", move);
       target.removeEventListener("mousedown", click);
+      target.removeEventListener("keydown", type);
     });
   }
 
@@ -91,12 +98,45 @@ export class Cursorling {
       this.hopUntil = now + HOP_MS;
       this.armIdle(now);
       if (kind === "click") this.say(pick(this.persona.mutters));
+      if (kind === "type") {
+        this.typeCount += 1;
+        if (this.typeCount % 14 === 0) this.say(pick(this.persona.mutters));
+      }
     }
     if (kind === "save") {
       this.stretchUntil = now + STRETCH_MS + 90;
       this.say(this.persona.saveMutter);
     }
     if (kind === "idle") this.yawnUntil = now + YAWN_MS;
+  }
+
+  lastLine(): string {
+    return this.mutterEl.textContent || this.persona.mutters[0] || "hm.";
+  }
+
+  personalityId(): Personality {
+    return this.persona.id;
+  }
+
+  weather(kind: "burst" | "storm"): void {
+    const lines =
+      kind === "storm"
+        ? {
+            chill: "saving a lot.",
+            dramatic: "THE ARCHIVES TREMBLE",
+            judgmental: "calm down.",
+            sleepy: "nnh. again?",
+            chaotic: "SAVE SAVE SAVE",
+          }
+        : {
+            chill: "fast hands.",
+            dramatic: "a tempest of glyphs!",
+            judgmental: "slow down. think.",
+            sleepy: "too loud",
+            chaotic: "CLICKY CLACKY",
+          };
+    this.say(lines[this.persona.id]);
+    this.hopUntil = performance.now() + HOP_MS + 200;
   }
 
   destroy(): void {

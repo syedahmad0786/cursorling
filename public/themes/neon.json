@@ -1,0 +1,16 @@
+{
+  "id": "neon",
+  "label": "neon alley",
+  "ink": "#0b1020",
+  "cream": "#d8fff4",
+  "wood": "#071018",
+  "brass": "#5cffc8",
+  "mute": "#6aa89a",
+  "mutters": {
+    "chill": ["glow.", "soft grid.", "ok neon."],
+    "dramatic": ["THE SIGNAGE WEEPS", "billboard of grief"],
+    "judgmental": ["rgb too loud.", "taste."],
+    "sleepy": ["screensaver…", "zzz"],
+    "chaotic": ["STROBE", "splort.exe"]
+  }
+}

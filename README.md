@@ -12,7 +12,19 @@ Repo: https://github.com/syedahmad0786/cursorling
 
 The pet follows the pointer on web pages. The popup switches personality. Tab count is optional (`tabs` permission).
 
+## Theme packs
+
+JSON files in `public/themes/`. Fork and add a pack: id, colors, optional mutter overrides.
+
+## Screenshot
+
+The demo has **Cursorling said this** — a 1080 PNG for posting “my coding buddy is judging me.” Share `?persona=judgmental`.
+
 ## Cursor / VS Code
+
+There is no stable Cursor-agent API. The sidebar treats save-storms and burst typing as “agent weather” and mutters about it. That is a best-effort tell, not a real agent hook.
+
+The familiar lives in the sidebar and notices typing and saves. It cannot overlay the editor chrome (the browser demo is the mouse-follow showcase).
 
 ```bash
 cd vscode-extension

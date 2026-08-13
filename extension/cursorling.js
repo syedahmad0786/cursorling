@@ -191,11 +191,17 @@
     function follow(target) {
       const move = (e) => point(e.clientX, e.clientY);
       const click = () => poke("click");
+      const type = (e) => {
+        if (e.metaKey || e.ctrlKey || e.altKey) return;
+        poke("type");
+      };
       target.addEventListener("mousemove", move, { passive: true });
       target.addEventListener("mousedown", click);
+      target.addEventListener("keydown", type);
       unbind.push(() => {
         target.removeEventListener("mousemove", move);
         target.removeEventListener("mousedown", click);
+        target.removeEventListener("keydown", type);
       });
     }
 

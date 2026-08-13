@@ -150,6 +150,7 @@
       const key = PERSONAS[id] ? id : "chill";
       state.persona = PERSONAS[key];
       root.dataset.persona = key;
+      state.id = key;
       root.dataset.eye = state.persona.eye;
       root.style.setProperty("--hop", `${state.persona.hop}px`);
       root.style.setProperty("--stretch", String(state.persona.stretch));
@@ -191,11 +192,17 @@
     function follow(target) {
       const move = (e) => point(e.clientX, e.clientY);
       const click = () => poke("click");
+      const type = (e) => {
+        if (e.metaKey || e.ctrlKey || e.altKey) return;
+        poke("type");
+      };
       target.addEventListener("mousemove", move, { passive: true });
       target.addEventListener("mousedown", click);
+      target.addEventListener("keydown", type);
       unbind.push(() => {
         target.removeEventListener("mousemove", move);
         target.removeEventListener("mousedown", click);
+        target.removeEventListener("keydown", type);
       });
     }
 
@@ -223,6 +230,26 @@
       root.classList.toggle("is-quiet", now > state.mutterUntil);
     }
 
+    function weather(kind) {
+      const id = state.id || "chill";
+      const storm = {
+        chill: "saving a lot.",
+        dramatic: "THE ARCHIVES TREMBLE",
+        judgmental: "calm down.",
+        sleepy: "nnh. again?",
+        chaotic: "SAVE SAVE SAVE",
+      };
+      const burst = {
+        chill: "fast hands.",
+        dramatic: "a tempest of glyphs!",
+        judgmental: "slow down. think.",
+        sleepy: "too loud",
+        chaotic: "CLICKY CLACKY",
+      };
+      say((kind === "storm" ? storm : burst)[id] || "hm.");
+      state.hopUntil = performance.now() + HOP_MS + 200;
+    }
+
     function destroy() {
       cancelAnimationFrame(state.raf);
       unbind.forEach((fn) => fn());
@@ -231,7 +258,7 @@
 
     setPersonality(options.personality || "chill");
     state.raf = requestAnimationFrame(tick);
-    return { setPersonality, setTabCount, poke, follow, destroy };
+    return { setPersonality, setTabCount, poke, follow, weather, destroy };
   }
 
   globalThis.Cursorling = { mount, PERSONAS };

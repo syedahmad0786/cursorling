@@ -28,6 +28,7 @@ window.addEventListener("message", (event) => {
   }
   if (msg.type === "type") pet.poke("type");
   if (msg.type === "save") pet.poke("save");
+  if (msg.type === "weather") pet.weather(msg.kind);
 });
 
 function mark(id) {
