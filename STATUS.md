@@ -1,5 +1,10 @@
 # Cursorling — STATUS
 
+## 2026-08-13 — agent theme live
+
+- Community pack `agent` is on https://cursorling.vercel.app
+- Next: none required.
+
 ## 2026-08-13 — agent theme
 
 - Community theme pack `public/themes/agent.json` (agent weather). Loaded in the demo theme nav.
